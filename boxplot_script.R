@@ -21,3 +21,18 @@ ggplot(data = melt(df_pa), aes(x=variable, y=value)) + geom_boxplot(aes(fill=var
 ggplot(data = melt(df_na), aes(x=variable, y=value)) + geom_boxplot(aes(fill=variable))
 ggplot(data = melt(df_pana), aes(x=variable, y=value)) + geom_boxplot(aes(fill=variable))
 
+####################################
+rm(list = ls())
+
+
+df_second = read.xlsx("dataset2.xlsx", sheetName = 1, colNames=TRUE)
+
+
+
+df_na2 = df_second[,c(4,5,7,8,10)] #this selects the NA columns df[*,**] -> in * you specify rows included, leaving this empty means you include all rows. In ** you specify columns included I here use c() to indicate specific columns
+df_pa2 = df_second[,c(2,3,6,9)]
+df_pana2 = df_second[,c(22,23)]
+
+ggplot(data = melt(df_pa2), aes(x=variable, y=value)) + geom_boxplot(aes(fill=variable))
+ggplot(data = melt(df_na2), aes(x=variable, y=value)) + geom_boxplot(aes(fill=variable))
+ggplot(data = melt(df_pana2), aes(x=variable, y=value)) + geom_boxplot(aes(fill=variable))
